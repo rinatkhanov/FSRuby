@@ -1,9 +1,9 @@
-<p>
-  <strong>Commenter:</strong>
-  <%= comment.commenter %>
-</p>
- 
-<p>
-  <strong>Comment:</strong>
-  <%= comment.body %>
-</p>
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title"><%= comment.commenter %>:</h3>
+  </div>
+  <div class="panel-body">
+    <%= comment.body %>
+  </div>
+</div>

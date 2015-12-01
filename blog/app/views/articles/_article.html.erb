@@ -1,0 +1,9 @@
+<div class="row">
+    <div class="col-sm-8 blog-main">
+      <div class="blog-post">
+        <h2 class="blog-post-title"><%= link_to article.title, article_path(article) %></h2>
+        <p class="blog-post-meta">Comments: <%= article.comments.count %> </p>
+        <%= article.text %>
+      </div>
+    </div>
+</div>

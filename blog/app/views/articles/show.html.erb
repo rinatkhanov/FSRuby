@@ -1,15 +1,9 @@
-<p>
-  <strong>Title:</strong>
-  <%= @article.title %>
-</p>
- 
-<p>
-  <strong>Text:</strong>
-  <%= @article.text %>
-</p>
+<%= render 'article', :article => @article %>
 
-<h2>Comments</h2>
-<%= render @article.comments %>
+<div class="well well-lg">
+	<h2>Comments</h2>
+	<%= render @article.comments %>
 
-<h2>Add a comment:</h2>
-<%= render 'comments/form' %>
+	<h2>Add a comment:</h2>
+	<%= render 'comments/form' %>
+</div>
