@@ -1,11 +1,11 @@
 <%= form_for([@article, @article.comments.build]) do |f| %>
+<div class="input-group">
+    <span class="input-group-addon" id="title">Name</span>
+    <%= f.text_field :commenter, class: 'form-control' %>
+  </div>
+  <br>
   <p>
-    <%= f.label :commenter %><br>
-    <%= f.text_field :commenter %>
-  </p>
-  <p>
-    <%= f.label :body %><br>
-    <%= f.text_area :body %>
+    <%= f.text_area :body, class: 'form-control', rows: "5" %>
   </p>
   <p>
     <%= f.submit 'Send', class: 'btn btn-default btn-lg' %>
