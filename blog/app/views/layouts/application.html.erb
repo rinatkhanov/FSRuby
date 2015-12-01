@@ -7,10 +7,26 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<%= link_to 'Yet another blog', articles_path %>
-<%= link_to 'New article', new_article_path %>
 
-<%= yield %>
+	<div class="blog-masthead">
+      <div class="container">
+        <nav class="blog-nav">
+        	<%= link_to 'All posts', articles_path, class: 'blog-nav-item' %>
+			<%= link_to 'New article', new_article_path, class: 'blog-nav-item' %>
+        </nav>
+      </div>
+    </div>
+
+    <div class="container">
+
+      <div class="blog-header">
+        <h1 class="blog-title">Yet Another Blog</h1>
+        <p class="lead blog-description"> by Rinat Khanov.</p>
+      </div>
+
+	<%= yield %>
+
+    </div>
 
 </body>
 </html>
