@@ -16,17 +16,19 @@
     </div>
   <% end %>
 
+<div class='well'>
+
+  <div class="input-group">
+    <span class="input-group-addon" id="title"><%= f.label :title %></span>
+    <%= f.text_field :title, class: 'form-control' %>
+  </div>
+  <br>
   <p>
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
+    <%= f.text_area :text, class: 'form-control', rows: "10" %>
   </p>
  
   <p>
-    <%= f.label :text %><br>
-    <%= f.text_area :text %>
+    <%= f.submit 'Save', class: 'btn btn-default btn-lg' %>
   </p>
- 
-  <p>
-    <%= f.submit %>
-  </p>
+</div>
 <% end %>

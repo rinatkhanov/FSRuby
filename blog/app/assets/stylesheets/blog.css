@@ -29,6 +29,10 @@ a {
   text-decoration: none
 }
 
+textarea {
+  resize: none;
+}
+
 /*
  * Override Bootstrap's default container.
  */
