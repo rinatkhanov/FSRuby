@@ -1,0 +1,10 @@
+.row
+  .medium-9.medium-centered.columns
+  	- @pages.each do |page|
+  		br
+	  	h3
+	  		= page.title
+	    | Created by 
+	    = page.author
+	    br
+		= page.content.html_safe

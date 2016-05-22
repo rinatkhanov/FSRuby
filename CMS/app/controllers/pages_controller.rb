@@ -18,6 +18,10 @@ class PagesController < ApplicationController
   def new
   end
 
+  def blog
+    @pages = Page.includes(:user).where(static: false).decorate 
+  end
+
   def create
     page.user = current_user
 
