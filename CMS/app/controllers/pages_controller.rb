@@ -42,6 +42,7 @@ class PagesController < ApplicationController
                                  :title,
                                  :content,
                                  :index, 
-                                 :url)
+                                 :url,
+                                 :static)
   end
 end

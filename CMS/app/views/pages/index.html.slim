@@ -6,6 +6,7 @@
         tr
             th Author
             th Title
+            th Type
             th Index
             th Custom URL
             th Available Actions
@@ -16,6 +17,8 @@
           td
             = link_to(page) do
               = page.title
+
+          td= page.static ? 'Static' : 'Article'
 
           td= page.index
           td

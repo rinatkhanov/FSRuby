@@ -5,6 +5,7 @@
       = form.cktext_area :content, :class => 'Page', :ckeditor => {:language => 'uk'}
       = form.input :index
       = form.input :url
+      = form.collection_radio_buttons :static, [[true, 'Static page'], [false, 'News article']], :first, :last
 
     .form-actions
       = form.button :submit
