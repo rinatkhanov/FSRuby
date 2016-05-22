@@ -1,15 +1,7 @@
-.contain-to-grid.sticky
-  nav.top-bar( data-topbar )
-
-    ul.title-area
-      li.name
-        h1 = link_to "Simple CMS", root_path
-      li.toggle-topbar
-        a(href="#")
-          i.fi-list
-
-    section.top-bar-section
-      ul.left
-        li= link_to 'Blog Articles', '/blog'
-      = render "navigation_main"
+.row
+  .small-12.large-expand.columns
       = render "navigation_user"
+      = link_to "Content Management System", root_path, class: 'success button', id: 'logo'
+      = link_to 'Blog Articles', '/blog', class: 'button'
+
+= render "navigation_main"

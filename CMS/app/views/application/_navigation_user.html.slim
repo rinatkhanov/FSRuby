@@ -1,20 +1,16 @@
-ul.right
+.right
   - if user_signed_in?
-    li.has-dropdown
-      a.user-dropdown(href="#") = current_user.full_name_with_email
-      ul.dropdown
-        new_user_registration_path
-        li
-          a href = pages_path
-            | All pages
-        li= current_user.admin? ? link_to('Edit roles', users_path) : ''
+      a.button.secondary.dropdown(href="#", data-dropdown="drop1") = current_user.full_name
+      ul.f-dropdown#drop1(data-dropdown-content)
+
+        li= current_user.admin? ? link_to('Edit user roles', users_path) : ''
 
         li
           a href = edit_user_registration_path
-            | Edit profile
+            | Edit my profile
         li
           a href = destroy_user_session_path
             | Sign out
   - else
-    = active_link_to "Sign in", new_user_session_path, active: :exclusive, wrap_tag: :li
-    = active_link_to "Sign up", new_user_registration_path, active: :exclusive, wrap_tag: :li
+    = link_to "Login", new_user_session_path, class: 'secondary button'
+    = link_to "Register", new_user_registration_path, class: 'secondary button'

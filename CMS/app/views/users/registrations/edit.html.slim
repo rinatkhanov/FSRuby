@@ -1,9 +1,6 @@
 .row
-  .columns
+  .medium-5.medium-centered.columns
     h2 = title("Edit #{current_user.full_name}")
-
-.row
-  .medium-6.columns
     = simple_form_for resource,
         as: resource_name,
         url: registration_path(resource_name),
@@ -21,15 +18,10 @@
             required: true
 
       .form-actions
-        = f.button :submit, "Update"
+        = f.button :submit, "Update", class: 'right round button'
 
-  .medium-6.columns.end
-    h6
-      b Cancel my account
-    p
-      | Unhappy?
-      '
-      = link_to "Cancel my account.",
+        = link_to "Remove my account",
           registration_path(resource_name),
           data: { confirm: "Are you sure?" },
-          method: :delete
+          method: :delete,
+          class: 'left alert round button'

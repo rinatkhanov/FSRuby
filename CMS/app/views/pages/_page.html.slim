@@ -1,0 +1,7 @@
+.panel.radius
+  	h3= link_to(page) do
+  		= page.title
+  	= page.content.html_safe
+    .label.right
+    	| Created by 
+    	= page.author

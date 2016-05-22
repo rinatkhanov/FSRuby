@@ -1,4 +1,7 @@
-- flash.each do |type, content|
-  div(data-alert class="alert-box #{type}" tabindex="0" aria-live="assertive" role="alertdialog")
-    = content
-    button.close(tabindex="0" aria-label="Close Alert") &times;
+
+	- flash.each do |type, content|
+		.row
+  			.medium-8.medium-centered.columns
+				  div(data-alert class="alert-box #{type}" tabindex="0" aria-live="assertive" role="alertdialog")
+				    = content
+				    button.close(tabindex="0" aria-label="Close Alert") &times;
