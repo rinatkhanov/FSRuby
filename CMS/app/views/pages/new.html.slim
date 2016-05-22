@@ -1,0 +1,6 @@
+.row
+	.large-8
+		= simple_form_for page do |form|
+		  = form.input :title
+		  = form.cktext_area :body, :class => 'Page', :ckeditor => {:language => 'uk'}
+		  = form.submit

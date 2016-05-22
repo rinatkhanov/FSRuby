@@ -2,11 +2,16 @@ nav.top-bar( data-topbar )
 
   ul.title-area
     li.name
-      h1 = link_to "Rails Base example site", root_path
-    li.toggle-topbar
+      h1 = link_to "CMS", root_path
+
+  li.toggle-topbar
       a(href="#")
         i.fi-list
 
   section.top-bar-section
-    = render "navigation_main"
+    ul
+      li = link_to "Create New Page", new_page_path
+      - Page.all.each do |p|
+          li = link_to p.title, p
+
     = render "navigation_user"
