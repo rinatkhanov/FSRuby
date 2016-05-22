@@ -1,17 +1,13 @@
-nav.top-bar( data-topbar )
+.contain-to-grid.sticky
+  nav.top-bar( data-topbar )
 
-  ul.title-area
-    li.name
-      h1 = link_to "CMS", root_path
+    ul.title-area
+      li.name
+        h1 = link_to "Simple CMS", root_path
+      li.toggle-topbar
+        a(href="#")
+          i.fi-list
 
-  li.toggle-topbar
-      a(href="#")
-        i.fi-list
-
-  section.top-bar-section
-    ul
-      li = link_to "Create New Page", new_page_path
-      - Page.all.each do |p|
-          li = link_to p.title, p
-
-    = render "navigation_user"
+    section.top-bar-section
+      = render "navigation_main"
+      = render "navigation_user"

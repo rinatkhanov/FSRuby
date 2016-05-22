@@ -1,4 +1,7 @@
 class Page < ActiveRecord::Base
-  validates :title, :body, :user_id, presence: true
+  validates :title, :user_id, presence: true
+
   belongs_to :user
+
+  scope :sorted, -> { Page.includes(:user).order(title: :asc) }
 end

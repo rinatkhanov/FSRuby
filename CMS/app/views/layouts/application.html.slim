@@ -7,7 +7,7 @@ html class="no-js" lang="en"
     meta name="viewport" content="width=device-width, initial-scale=1.0"
     meta name="robots" content="NOODP,NOYDIR"
 
-    = metamagic site: "RailsBase", title: %i(title site), separator: " - "
+    = metamagic site: "Simple CMS", title: %i(title site), separator: " - "
     = csrf_meta_tags
 
     = stylesheet_link_tag :application
@@ -19,13 +19,10 @@ html class="no-js" lang="en"
     == analytics_init if GA.tracker
 
   body
-    #root
-      = render "navigation"
-      = render "messages"
-
+    = render "navigation"
+    = render "messages"
+    .row#content
       = yield
-
-    = render "footer"
 
     javascript:
       App.currentUserData = #{{current_user.to_json}};

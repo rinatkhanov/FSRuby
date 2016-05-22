@@ -1,6 +1,4 @@
 .row
-	.large-8
-		= simple_form_for page do |form|
-		  = form.input :title
-		  = form.cktext_area :body, :class => 'Page', :ckeditor => {:language => 'uk'}
-		  = form.submit
+  .medium-8.medium-centered.columns
+    h2 Create new page
+    = render 'form'

@@ -1,4 +1,32 @@
 .row
-  .columns
-    h2
-      = title("Home")
+  .medium-8.medium-centered.columns
+    h2 Pages
+    table.table.table-striped.pages-list
+      thead
+        tr
+            th Author
+            th Title
+            th Index
+            th Custom URL
+            th Available Actions
+      - @pages.each do |page|
+        - policy = PagePolicy.new(current_user, page)
+        tr
+          td= page.author
+          td
+            = link_to(page) do
+              = page.title
+
+          td= page.index
+          td= page.url
+          td
+            = link_to(edit_page_path(page)) do
+                | Edit 
+            | - 
+            = link_to(page, method: :delete, data: { confirm: 'Are you sure?' }) do
+                | Remove
+
+    br
+    = link_to new_page_path, class: 'button' do
+      i.fi-plus
+      |  New Page
