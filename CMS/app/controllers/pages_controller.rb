@@ -2,8 +2,7 @@ class PagesController < ApplicationController
   before_action :authenticate_user!, only: %w(new create edit update destroy)
 
   respond_to :html
-
-  expose_decorated(:page, attributes: :page_params)
+  
   # expose(:policy) { PagePolicy.new(current_user, page) }
 
   def index
@@ -11,6 +10,8 @@ class PagesController < ApplicationController
   end
 
   def show
+    page = Page.find_by_url(params[:id]) || Page.find(params[:id])
+    @page = page.decorate 
   end
 
   def new

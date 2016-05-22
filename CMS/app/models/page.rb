@@ -3,5 +3,5 @@ class Page < ActiveRecord::Base
 
   belongs_to :user
 
-  scope :sorted, -> { Page.includes(:user).order(title: :asc) }
+  scope :sorted, -> { Page.includes(:user).order(index: :asc) }
 end

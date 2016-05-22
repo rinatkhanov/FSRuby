@@ -2,8 +2,8 @@
   .medium-9.medium-centered.columns
   	br
   	h3
-  		= page.title
+  		= @page.title
     | Created by 
-    = page.author
+    = @page.author
     br
-	= page.content.html_safe
+	= @page.content.html_safe

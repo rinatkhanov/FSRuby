@@ -18,7 +18,9 @@
               = page.title
 
           td= page.index
-          td= page.url
+          td
+            = link_to('pages/' + page.url) do
+              = page.url
           td
             = link_to(edit_page_path(page)) do
                 | Edit 
