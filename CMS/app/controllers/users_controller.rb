@@ -6,8 +6,8 @@ class UsersController < ApplicationController
 
   respond_to :html
 
-  expose_decorated(:page, attributes: :page_params)
-  expose(:policy) { UserPolicy.new(current_user, page) }
+  expose_decorated(:user, attributes: :user_params)
+  expose(:policy) { UserPolicy.new(current_user, user) }
 
   def index
     all = User.all.decorate
@@ -26,10 +26,13 @@ class UsersController < ApplicationController
   private
 
   def change_role_to x
-    user = User.find_by_id(params[:id])
     user.role = x
     user.save
     redirect_to users_path
+  end
+
+  def user_params
+    params.require(:user).permit(:id, :full_name, :role)
   end
 
 end
