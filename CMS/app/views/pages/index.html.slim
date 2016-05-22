@@ -25,11 +25,13 @@
             = link_to('pages/' + page.url) do
               = page.url
           td
-            = link_to(edit_page_path(page)) do
-                | Edit 
+            - if policy.edit?
+              = link_to(edit_page_path(page)) do
+                  | Edit 
             | - 
-            = link_to(page, method: :delete, data: { confirm: 'Are you sure?' }) do
-                | Remove
+            - if policy.destroy?
+              = link_to(page, method: :delete, data: { confirm: 'Are you sure?' }) do
+                  | Remove
 
     br
     = link_to new_page_path, class: 'button' do

@@ -1,0 +1,24 @@
+.row
+  .medium-8.medium-centered.columns
+    br
+    h4 Editors
+    table.table.table-striped.pages-list
+      thead
+        tr
+            th User
+            th Actions
+      - @admins.each do |user|
+        tr
+          td= user.full_name_with_email
+          td= link_to 'Remove from editors', downgrade_path(user.id)
+
+    h4 Users
+    table.table.table-striped.pages-list
+      thead
+        tr
+            th User
+            th Actions
+      - @users.each do |user|
+        tr
+          td= user.full_name_with_email
+          td= link_to 'Make editor', upgrade_path(user.id)

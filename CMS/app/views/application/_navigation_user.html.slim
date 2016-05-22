@@ -6,7 +6,9 @@ ul.right
         new_user_registration_path
         li
           a href = pages_path
-            | Edit CMS pages
+            | All pages
+        li= current_user.admin? ? link_to('Edit roles', users_path) : ''
+
         li
           a href = edit_user_registration_path
             | Edit profile

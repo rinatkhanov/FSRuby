@@ -1,10 +1,10 @@
 class PagesController < ApplicationController
-  before_action :authenticate_user!, only: %w(new create edit update destroy)
+  before_action :authenticate_user!
 
   respond_to :html
 
   expose_decorated(:page, attributes: :page_params)
-  # expose(:policy) { PagePolicy.new(current_user, page) }
+  expose(:policy) { PagePolicy.new(current_user, page) }
 
   def index
     @pages = Page.sorted.decorate
@@ -30,13 +30,23 @@ class PagesController < ApplicationController
   end
 
   def update
-    flash[:notice] = "Page was successfully updated." if page.save
-    respond_with page, location: pages_path
+    if policy.edit?
+      flash[:notice] = "Page was successfully updated." if page.save
+      respond_with page, location: pages_path
+    end
   end
 
   def destroy
-    page.destroy
-    respond_with page, location: pages_path
+    if policy.destroy?
+      page.destroy
+      respond_with page, location: pages_path
+    end
+  end
+
+  def edit
+    unless policy.edit?
+      redirect_to pages_path
+    end
   end
 
   private
